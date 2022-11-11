@@ -5,7 +5,7 @@ agent any
         skipStagesAfterUnstable()
     }
 
-    stage {
+    stages {
         stage('Build') {
             steps {
                 echo "Build"
