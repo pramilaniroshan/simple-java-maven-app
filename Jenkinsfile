@@ -1,27 +1,29 @@
 pipeline {
-    agent any
+
+agent an
     options {
         skipStagesAfterUnstable()
     }
+
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                echo "Build"
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                echo "test"
             }
             post {
                 always {
-                    junit 'target/surefire-reports/*.xml'
+                    echo "post"
                 }
             }
         }
         stage('Deliver') { 
             steps {
-                sh './jenkins/scripts/deliver.sh' 
+                echo "Deliver"
             }
         }
     }
